@@ -76,10 +76,11 @@ int getop(char s[]) {
         return c;
 
     if(c == '-') {
-        if((d = getch()) == ' ')
-            return c;
-        else if(d != EOF)
+        d = getch();
+        if(d != EOF)
             ungetch(d);
+        if(!isdigit(d))
+            return c;
     }
 
     i = 0;
